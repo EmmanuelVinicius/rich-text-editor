@@ -1,26 +1,28 @@
 import React, { Component } from "react";
+import { Select } from 'antd';
+
+const { Option } = Select;
 
 export default class HeaderStyleDropdown extends Component {
   onToggle = e => {
-    let value = e.target.value
-    this.props.onToggle(value)
+    this.props.onToggle(e)
   }
 
   render() {
     return (
-      <select
+      <Select
         value={this.props.active}
         onChange={this.onToggle}
+        placeholder="Select a heading level..."
       >
-        <option value=''>Header Levels</option>
         {this.props.headerOptions.map((heading, index) => {
           return (
-            <option key={index} value={heading.style}>
+            <Option key={index} value={heading.style}>
               {heading.label}
-            </option>
+            </Option>
           )
         })}
-      </select>
+      </Select>
     )
   }
 }

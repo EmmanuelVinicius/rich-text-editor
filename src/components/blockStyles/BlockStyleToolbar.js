@@ -3,10 +3,10 @@ import HeaderStyleDropdown from "./HeaderStyleDropdown";
 import BlockStyleButton from "./BlockStyleButton";
 
 export const BLOCK_TYPES = [
-  { label: " “ ” ", style: "blockquote" },
-  { label: "UL", style: "unordered-list-item" },
-  { label: "OL", style: "ordered-list-item" },
-  { label: " { } ", style: "code-block" }
+  { label: 'blockquote', style: "blockquote" },
+  { label: "unordered", style: "unordered-list-item" },
+  { label: "ordered", style: "ordered-list-item" },
+  { label: "code", style: "code-block" }
 ];
 
 export const HEADER_TYPES = [
@@ -43,12 +43,11 @@ export default class BlockStyleToolbar extends Component {
           active={blockType}
           onToggle={this.props.onToggle}
         />
-
+      <br />
         {BLOCK_TYPES.map(type => {
           return (
             <BlockStyleButton
               active={type.style === blockType}
-              label={type.label}
               onToggle={this.props.onToggle}
               style={type.style}
               key={type.label}

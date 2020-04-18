@@ -1,6 +1,19 @@
 import React, { Component } from "react";
+import { Button } from 'antd';
+import {
+  OrderedListOutlined,
+  UnorderedListOutlined,
+  CodeOutlined,
+  BlockOutlined
+} from '@ant-design/icons'
+import 'antd/dist/antd.css';
 
-
+const icons = {
+  ordered: <OrderedListOutlined />,
+  unordered: <UnorderedListOutlined />,
+  code: <CodeOutlined />,
+  blockquote: <BlockOutlined />
+}
 export default class BlockStyleButton extends Component {
   onToggle = e => {
     e.preventDefault();
@@ -11,12 +24,13 @@ export default class BlockStyleButton extends Component {
     let className = 'RichEditor-styleButton';
     if (this.props.active) className += 'RichEditor-activeButton';
     return (
-      <button
+      <Button
+        shape="round"
         className={className}
         onClick={this.onToggle}
-      >
-        {this.props.label}
-      </button>
+        icon={icons[this.props.type.label]}
+        style={{margin: '5px'}}
+        />
     );
   };
 }
